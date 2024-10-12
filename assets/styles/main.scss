@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'fonts';
+
+* {
+    background-color: $background_color;
+    color: $secondary_text_color;
+    text-align: center;
+}
+
+.song__name {
+    font-family: $primary_font;
+    font-size: 4em;
+}
+
+.artiste__name {
+    font-family: $primary_font;
+    font-size: 3em;
+}
+
+.album__name {
+    font-family: $primary_font;
+    font-size: 3em;
+}
