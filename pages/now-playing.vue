@@ -21,54 +21,44 @@ import axios from 'axios';
 
 
 export default {
- data() {
-   return {
-     track: null,
-     error: null,
-     pollingInterval: null,
-   };
- },
+    data() {
+        return {
+            track: null,
+            error: null,
+            pollingInterval: null,
+        };
+    },
+    computed: {
+        backgroundStyle() {
+            const imageUrl = this.track?.album?.images?.[0]?.url;
+            return imageUrl
+                ? { backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+                : {};
+        },
+    },
+    async mounted() {
+        await this.fetchNowPlaying();
+        this.startPolling();
+    },
+    beforeDestroy() {
+        clearInterval(this.pollingInterval);
+    },
+    methods: {
+        async fetchNowPlaying() {
+            try {
+                const { data } = await axios.get('/api/now-playing');
+                this.track = data.type === 'playing' ? data.data.item : data.data;
 
 
- computed: {
-   backgroundStyle() {
-     const imageUrl = this.track?.album?.images?.[0]?.url;
-     return imageUrl
-       ? { backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-       : {};
-   },
- },
-
-
- async mounted() {
-   await this.fetchNowPlaying();
-   this.startPolling();
- },
-
-
- beforeDestroy() {
-   clearInterval(this.pollingInterval);
- },
-
-
- methods: {
-   async fetchNowPlaying() {
-     try {
-       const { data } = await axios.get('/api/now-playing');
-       this.track = data.type === 'playing' ? data.data.item : data.data;
-
-
-       document.title = `Charles ${data.type === ' is listening to' ? 'listening to' : 'last listened to'} ${this.track.name} by ${this.track.artists[0].name}`;
-     } catch (err) {
-       console.error(err);
-       this.error = 'Could not get what Charles is listening to.';
-     }
-   },
-
-
-   startPolling() {
-     this.pollingInterval = setInterval(this.fetchNowPlaying, 5000);
-   },
- },
+                document.title = `Charles ${data.type === ' is listening to' ? 'listening to' : 'last listened to'} ${this.track.name} by ${this.track.artists[0].name}`;
+            } catch (err) {
+                console.error(err);
+                this.error = 'Could not get what Charles is listening to.';
+            }
+        },
+        startPolling() {
+            this.pollingInterval = setInterval(this.fetchNowPlaying, 5000);
+        },
+    },
 };
 </script>

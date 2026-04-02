@@ -7,8 +7,8 @@
 
 <script>
 export default {
- mounted() {
-   this.$router.push('/now-playing');
- },
+  mounted() {
+    this.$router.push('/now-playing');
+  },
 };
 </script>
