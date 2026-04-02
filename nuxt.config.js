@@ -22,7 +22,7 @@ export default {
   ],
 
   serverMiddleware: [
-    { path: '/api', handler: 'server-middleware/spotify.js' }
+    { path: '/api', handler: require('./server-middleware/spotify.js') }
   ],
 
 
