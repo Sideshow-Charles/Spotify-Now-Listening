@@ -1,4 +1,3 @@
-import path from 'path'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -22,11 +21,6 @@ export default {
     '~/assets/styles/main.scss'
   ],
 
-  serverMiddleware: [
-    { path: '/api', handler: path.resolve(__dirname, 'server-middleware/spotify.js') }
-  ],
-
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -49,7 +43,6 @@ export default {
     SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
     SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
     SPOTIFY_REDIRECT_URI: process.env.SPOTIFY_REDIRECT_URI,
-    SPOTIFY_REFRESH_TOKEN: process.env.SPOTIFY_REFRESH_TOKEN
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

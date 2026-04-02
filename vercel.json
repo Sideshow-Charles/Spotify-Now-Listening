@@ -3,6 +3,16 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder"
+    },
+    {
+      "src": "api/now-playing.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/now-playing",
+      "dest": "/api/now-playing.js"
     }
   ]
 }
