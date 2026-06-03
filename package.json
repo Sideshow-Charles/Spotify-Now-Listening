@@ -15,6 +15,7 @@
     "core-js": "^3.25.3",
     "esm": "^3.2.25",
     "node-fetch-native": "^1.6.7",
+    "node-vibrant": "^4.0.4",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",

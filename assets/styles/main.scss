@@ -1,11 +1,14 @@
 @import 'variables';
 @import 'fonts';
 
+body {
+    color: #F2E6DE;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: $secondary_text_color;
     text-align: center;
 }
 
@@ -43,9 +46,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
     z-index: 1;
+    width: 100%;
+    padding: 0 2rem;
 }
 
 .base__screen {
@@ -71,16 +75,33 @@
     font-family: $primary_font;
     font-size: 4em;
     margin-top: 2rem;
-
+    word-break: break-word;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #F2E6DE;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
 
 .artiste__name {
     font-family: $primary_font;
     font-size: 3em;
     margin-bottom: 1rem;
+    word-break: break-word;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #F2E6DE;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
 
 .album__name {
     font-family: $primary_font;
     font-size: 2em;
+    word-break: break-word;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #F2E6DE;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
