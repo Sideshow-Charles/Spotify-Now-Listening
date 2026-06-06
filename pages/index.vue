@@ -10,7 +10,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.$router.push('/now-playing');
-    }, 5000);
+    }, 3000);
   },
 };
 </script>
