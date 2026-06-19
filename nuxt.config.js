@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'spotify-now-listening',
+    title: 'What Is Charles Listening To?',
     htmlAttrs: {
       lang: 'en'
     },
