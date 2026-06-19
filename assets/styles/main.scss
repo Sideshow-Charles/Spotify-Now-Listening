@@ -105,3 +105,36 @@ body {
     color: #F2E6DE;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 768px) {
+    .song__name {
+        font-size: 2.8em;
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .artiste__name {
+        font-size: 2.2em;
+    }
+
+    .album__name {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .song__name {
+        font-size: 2em;      
+        margin-top: 1rem;
+        line-height: 1.2; 
+    }
+
+    .artiste__name {
+        font-size: 1.6em;
+        margin-bottom: 0.75rem;
+    }
+
+    .album__name {
+        font-size: 1.2em;
+    }
+}
