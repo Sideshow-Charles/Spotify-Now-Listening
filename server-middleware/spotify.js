@@ -40,14 +40,14 @@ module.exports = async function (req, res, next) {
         try {
             const accessToken = await getAccessToken();
             const nowPlaying = await axios.get(
-                'https://api.spotify.com/v1/me/player/currently-playing',
+                'https://api.spotify.com/v1/me/player/currently-playing?additional_types=track,episode',
                 {
                     httpsAgent,
                     headers: { Authorization: `Bearer ${accessToken}` },
                 }
             );
 
-            if (nowPlaying.data && nowPlaying.data.is_playing) {
+            if (nowPlaying.data && nowPlaying.data.is_playing && nowPlaying.data.item) {
                 res.setHeader('Content-Type', 'application/json');
                 return res.end(JSON.stringify({ type: 'playing', data: nowPlaying.data }));
             }

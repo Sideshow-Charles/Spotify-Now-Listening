@@ -34,11 +34,11 @@ module.exports = async (req, res) => {
     const accessToken = await getAccessToken();
 
     const nowPlaying = await axios.get(
-      'https://api.spotify.com/v1/me/player/currently-playing',
+      'https://api.spotify.com/v1/me/player/currently-playing?additional_types=track,episode',
       { headers: { Authorization: `Bearer ${accessToken}` } }
     );
 
-    if (nowPlaying.data && nowPlaying.data.is_playing) {
+    if (nowPlaying.data && nowPlaying.data.is_playing && nowPlaying.data.item) {
       return res.json({ type: 'playing', data: nowPlaying.data });
     }
 
