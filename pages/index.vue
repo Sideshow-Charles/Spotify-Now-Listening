@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <p class="base__text">Hang On, Let's Get While We Get What Charles Is Listening To</p>
+    <p class="base__text">Hang On, While We Get What Charles Is Listening To</p>
   </div>
 </template>
 
