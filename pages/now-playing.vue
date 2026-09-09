@@ -1,35 +1,22 @@
 <template>
-  <div class="app-container">
-    <div class="background" :style="backgroundStyle"></div>
-    <div class="overlay">
-      <div v-if="media">
-        <img :src="media.image" alt="Cover art" class="album__image" />
-        <div class="song__name">{{ media.title }}</div>
-        <div class="artiste__name">{{ media.subtitle }}</div>
-        <div class="album__name">{{ media.context }}</div>
-      </div>
-      <div v-else-if="error" class="state__screen">
-        <div class="state__icon">
-          <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="8" x2="12" y2="12" />
-            <line x1="12" y1="16" x2="12.01" y2="16" />
-          </svg>
+    <div class="app-container">
+        <div class="background" :style="backgroundStyle"></div>
+        <div class="overlay">
+            <div v-if="media">
+                <img :src="media.image" alt="Cover art" class="album__image" />
+                <div class="song__name">{{ media.title }}</div>
+                <div class="artiste__name">{{ media.subtitle }}</div>
+                <div class="album__name">{{ media.context }}</div>
+            </div>
+            <div v-else="error" class="state__screen">
+                <p class="state__text">{{ error }}</p>
+            </div>
         </div>
-        <p class="state__text">{{ error }}</p>
-        <p class="state__hint">Probably nothing playing right now. Check back in a bit.</p>
-      </div>
-      <div v-else class="state__screen">
-        <div class="state__pulse"></div>
-        <p class="state__text">Tuning in&hellip;</p>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
 import axios from 'axios';
-
 export default {
     data() {
         return {
